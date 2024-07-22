@@ -1,36 +1,98 @@
-# Valorant_bot
-Valorant bot for deathmatch and training created for educational purposes
+# Valorant Match Highlights 
 
+This project provides a script to process a Valorant match recording and extract only those moments where players are visible. This allows you to record your gameplay and reduce a long video to only the moments where you are in combat with other players.
 
-## How to start
+## Table of Contents
+- [Installation](#installation)
+  - [Windows](#windows)
+  - [Mac](#mac)
+- [Usage](#usage)
+  - [Windows](#windows-1)
+  - [Mac](#mac-1)
+- [Script Execution](#script-execution)
 
-#### 1. Make virtual enviroment
+## Installation
 
-Mac OS:
+### Windows
+(Also you can just run script for windows, go to Usage->Windows and script install all libraries to venv)
 
+1. Create a virtual environment:
+
+(Use the default terminal, not PowerShell)
+   
 > python -m venv venv
 
-> source venv/bin/activate
+2. Activate the virtual environment:
 
-Windows:
+>venv\Scripts\activate
 
-python -m venv venv
-(in default terminal, not in powershell)
-venv\Scripts\activate
+3. Install the necessary libraries:
 
-#### 2. Install requirements.txt
+If you have cuda install pytorch with it
+
+you this to check: https://pytorch.org/get-started/locally/
+
+for example
+
+> pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+
+Then install requirements
 
 > pip install -r requirements.txt
 
 
-## How to test
 
-You need to run *predict_video.py* in *src* folder.
+### Mac
 
-> python src/predict_video.py
+1. Create a virtual environment:
 
-Also you can chage video for test.
+> python -m venv venv
 
-You need write here path for your video.
+2. Activate the virtual environment:
 
-> cap = connect_video("videos/video_example_1.mp4")
+> source venv/bin/activate
+
+3. Install requirements.txt
+
+> pip3 install -r requirements.txt
+
+
+## Usage
+
+
+### Windows
+
+After installing the virtual environment and the necessary libraries, you can run the main script:
+
+
+> python main.py input_path output_path
+
+Or you can use the provided runner script:
+
+
+> ./runner_for_windows.sh input_path output_path
+
+### Mac
+
+After installing the virtual environment and the necessary libraries, you can run the main script:
+
+> python main.py input_path output_path
+
+## Script Execution
+
+The main.py script processes the input video, extracts only the moments where players are visible, and saves the result to the specified output path. The script takes two arguments: the path to the input video and the path to the output video.
+
+Example usage:
+
+
+> python main.py path/to/input_video.mp4 path/to/output_video.mp4
+
+Or using the runner script on Windows:
+
+
+> ./runner_for_windows.sh path/to/input_video.mp4 path/to/output_video.mp4
+
+
+for test I upload video in videos/video_example_1.mp4, you can save it to output folder
+
+> python main.py videos/video_example_1.mp4 output/output_video.mp4

@@ -3,21 +3,8 @@ from ultralytics import YOLO
 import numpy as np
 import torch
 import time
+from change_device import get_device
 
-
-    
-def get_device():
-    """
-    Returns the device to be used for computations.
-
-    Returns:
-        str: The device to be used for computations. Possible values are "mps", "cuda", or "cpu".
-    """
-    if torch.backends.mps.is_available():
-        return "mps"
-    if torch.cuda.is_available():
-        return "cuda"
-    return "cpu"
 
 
 
